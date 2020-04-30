@@ -1,0 +1,43 @@
+<html lang="en">
+
+  <head>
+    <title>WebRTC demo</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>WebRTC Video Streaming</h1>
+      <video id="localVideoEl" playsinline autoplay muted></video>
+      <video id="remoteVideoEl" playsinline autoplay></video>
+      <div>
+        <button id="startVideoBtn">Start video</button>
+        <button id="callBtn">Call</button>
+        <button id="hangUpBtn">Hang up</button>
+        <div id="errorMsg"></div>
+      </div>
+
+      <div class="box">
+        <span>SDP Semantics:</span>
+        <select id="sdpSemantics">
+          <option selected value="">Default</option>
+          <option value="unified-plan">Unified Plan</option>
+          <option value="plan-b">Plan B</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>WebRTC Messaging</h1>
+      <button type="button" class="btn btn-primary" onclick='initializeMessaging()'>Initialize messaging</button>
+      <input id="messageInput" type="text" class="form-control" placeholder="message">
+      <button type="button" class="btn btn-primary" onclick='sendMessage()'>Send message</button>
+    </div>
+
+    <script src="js/wsService.js"></script>
+    <script src="js/sessionService.js"></script>
+    <script src="js/videoService.js"></script>
+    <script src="js/client.js"></script>
+  </body>
+
+</html>
