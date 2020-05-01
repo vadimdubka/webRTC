@@ -1,4 +1,4 @@
-package com.baeldung.webrtc;
+package com.vdubka.webrtc;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;

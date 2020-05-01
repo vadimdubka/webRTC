@@ -1,12 +1,12 @@
-package com.baeldung.webrtc;
+package com.vdubka.webrtc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebRTCDemoApplication {
+public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebRTCDemoApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 }
