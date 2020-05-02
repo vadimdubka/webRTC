@@ -9,20 +9,7 @@ class SessionService {
     localStream;
 
     constructor(wsService, configuration, remoteVideoEl) {
-        // the purpose of the configuration object is to pass in the STUN and TURN servers and other configurations.
-
-        // const configuration2 = {
-        //     'iceServers': [
-        //         {
-        //             'urls': 'stun:stun.l.google.com:19302'
-        //         },
-        //         {
-        //             'urls': 'turn:10.158.29.39:3478?transport=udp',
-        //             'credential': 'XXXXXXXXXXXXX',
-        //             'username': 'XXXXXXXXXXXXXXX'
-        //         }]
-        // };
-
+        console.log('RTCPeerConnection configuration:', configuration);
         // const rtcPeerConnection = new RTCPeerConnection(configuration, {optional: [{RtpDataChannels: true}]});
         const rtcPeerConnection = new RTCPeerConnection(configuration);
         console.log('Created local rtcPeerConnection object');

@@ -1,4 +1,9 @@
-Test: http://localhost:8080/api/v1/hello
+Test:
+http://localhost:8080/api/v1/hello
+http://ec2-13-53-35-183.eu-north-1.compute.amazonaws.com:8080/api/v1/hello
+http://ec2-13-53-35-183.eu-north-1.compute.amazonaws.com:8080/index.html
+
+
 
 ## WebRTC
 

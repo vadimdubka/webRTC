@@ -14,3 +14,4 @@ build/
 *.iws
 *.iml
 *.ipr
+*.pem

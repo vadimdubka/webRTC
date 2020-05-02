@@ -12,7 +12,7 @@ const hangupButton = document.querySelector('#hangUpBtn');
 callButton.disabled = true;
 hangupButton.disabled = true;
 
-startVideoButton.onclick = ev => startVideo2();
+startVideoButton.onclick = ev => startVideo();
 callButton.onclick = ev => call();
 hangupButton.addEventListener('click', hangUp);
 
@@ -34,11 +34,10 @@ remoteVideoEl.addEventListener('resize', () => {
 //************** video **************
 const mediaStreamConstraints = window.constraints = {audio: false, video: true};
 
-async function startVideo2() {
-    console.log('Requesting local mediaStream');
+async function startVideo() {
+    console.log('Requesting local mediaStream.');
     startVideoButton.disabled = true;
     try {
-        // const localMediaStream = navigator.getUserMedia(constraints, handleSuccess, handleError);
         const localMediaStream = await navigator.mediaDevices.getUserMedia(mediaStreamConstraints);
         console.log('Received local localMediaStream with constraints:', mediaStreamConstraints);
         window.stream = localMediaStream; // make variable available to browser console
@@ -55,13 +54,22 @@ async function startVideo2() {
         }
 
 
-        const configuration = getSelectedSdpSemantics();
-        console.log('RTCPeerConnection configuration:', configuration);
-
-        console.log(`*remoteVideoEl: ${remoteVideoEl}`);
+        // the purpose of the configuration object is to pass in the STUN and TURN servers and other configurations.
+        // const configuration = getSelectedSdpSemantics();
+        const configuration = {
+            'iceServers': [
+                {
+                    'urls': 'stun:stun.l.google.com:19302'
+                },
+                {
+                    'urls': 'turn:10.158.29.39:3478?transport=udp',
+                    'credential': 'XXX', 'username': 'XXX'
+                }]
+        };
         sessionService = new SessionService(wsService, configuration, remoteVideoEl);
         sessionService.setLocalStream(localMediaStream);
     } catch(e) {
+        startVideoButton.disabled = false;
         handleError(e);
     }
 }

@@ -1,5 +1,6 @@
 package com.vdubka.webrtc;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Slf4j
 @Component
 public class SocketHandler extends TextWebSocketHandler {
 
@@ -27,6 +29,7 @@ public class SocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
+        log.info("adding new websocket connection #{} from url:{}", sessions.size(), session.getUri());
         sessions.add(session);
     }
 }
