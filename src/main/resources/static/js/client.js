@@ -1,5 +1,6 @@
 'use strict';
 const wsUrl = 'ws://localhost:8080/socket';
+// const wsUrl = 'ws://13.53.35.183:8080/socket';
 const wsService = new WsService(wsUrl);
 let sessionService;
 
@@ -32,7 +33,7 @@ remoteVideoEl.addEventListener('resize', () => {
 });
 
 //************** video **************
-const mediaStreamConstraints = window.constraints = {audio: false, video: true};
+const mediaStreamConstraints = window.constraints = {audio: true, video: true};
 
 async function startVideo() {
     console.log('Requesting local mediaStream.');

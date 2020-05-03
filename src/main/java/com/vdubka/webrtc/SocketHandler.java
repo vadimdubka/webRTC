@@ -29,7 +29,7 @@ public class SocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
-        log.info("adding new websocket connection #{} from url:{}", sessions.size(), session.getUri());
+        log.info("adding new websocket connection #{} from url:{}", sessions.size(), session.getRemoteAddress());
         sessions.add(session);
     }
 }
